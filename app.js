@@ -40,8 +40,15 @@ app.use('/admin', admin);
 app.use((req,res)=>{
   res.status(404).render('Display/404')
 })
+require("dotenv").config();
+const connectDB = require("./Utils/db");
+
+connectDB();
+
 const port = process.env.PORT || 3000;
+
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
+
 
