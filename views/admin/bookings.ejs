@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Bookings</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #000000;
+}
+
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+table th, table td {
+    border: 1px solid #000000;
+    padding: 12px;
+    text-align: center;
+    color: #000000;
+}
+
+table th {
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #ffffff;
+}
+</style>
+
+</head>
+<body>
+    <%- include('../partials/admin-nav') %>
+
+    <h1>All Bookings</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Hotel</th>
+            <th>Room Type</th>
+            <th>AC Type</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Guests</th>
+            <th>Payment</th>
+        </tr>
+        <% bookings.forEach(booking => { %>
+            <tr>
+                <td><%= booking.name %></td>
+                <td><%= booking.email %></td>
+                <td><%= booking.hotelName %></td>
+                <td><%= booking.roomType %></td>
+                <td><%= booking.acType %></td>
+                <td><%= booking.checkIn %></td>
+                <td><%= booking.checkOut %></td>
+                <td><%= booking.guests %></td>
+                <td><%= booking.payment %></td>
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

@@ -12,6 +12,7 @@ const review=require('./Routes/Displauroutes/review')
 const db=require('./Utils/db')
 const bodyParser = require('body-parser');
 const Auth=require('./Routes/AuthRoutes')
+const admin=require('./Routes/admin')
 require('dotenv').config();
 app.use(express.static(path.join(__dirname,'public')))
 app.set('view engine','ejs')
@@ -35,6 +36,7 @@ app.use(end)
 app.use(contact)
 app.use(review)
 app.use(Auth)
+app.use('/admin', admin);
 app.use((req,res)=>{
   res.status(404).render('Display/404')
 })

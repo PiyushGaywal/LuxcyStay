@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333333; /* dark text color for white background */
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #222222;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto 40px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    color: #333333; /* table text color */
+}
+
+table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+</style>
+
+</head>
+<body>
+<%- include('../partials/admin-nav') %>
+
+<h1>Dashboard</h1>
+<p>Total Bookings: <%= totalBookings %></p>
+
+<h2>Recent Bookings</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Hotel</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+        <th>Guests</th>
+    </tr>
+    <% recentBookings.forEach(booking => { %>
+        <tr>
+            <td><%= booking.name %></td>
+            <td><%= booking.hotelName %></td>
+            <td><%= booking.checkIn %></td>
+            <td><%= booking.checkOut %></td>
+            <td><%= booking.guests %></td>
+        </tr>
+    <% }) %>
+</table>
+</body>
+</html>

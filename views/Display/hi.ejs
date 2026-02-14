@@ -4,100 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Stay</title>
-    <link rel="stylesheet" href="Display/hi.css">
+    <link rel="stylesheet" href="/Display/hi.css">
 </head>
 <body>
-    <%- include('../partials/nav')%>
+    <%- include('../partials/nav') %>
+
     <main>
         <fieldset>
             <legend>Select The Hotel</legend>
-        <form action="/end" method="post">
-        <div class="hotel-container">
-            <div class="hotel-card">
-                <img src="/images/istockphoto-119926339-612x612.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Oberoy Hotel</div>
-                    <div class="hotel-price">₹1100 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
+            <div class="hotel-container">
+
+                
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/istockphoto-119926339-612x612.jpg" alt="Oberoy Hotel">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Oberoy Hotel</div>
+                            <div class="hotel-price">₹1100 / Night</div>
+                            <input type="hidden" name="hotelName" value="Oberoy Hotel">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel1.jpg" alt="Grand Palace">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Grand Palace</div>
+                            <div class="hotel-price">₹950 / Night</div>
+                            <input type="hidden" name="hotelName" value="Grand Palace">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel3.jpg" alt="Sea View Resort">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Sea View Resort</div>
+                            <div class="hotel-price">₹850 / Night</div>
+                            <input type="hidden" name="hotelName" value="Sea View Resort">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel4.jpg" alt="Mountain Lodge">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Mountain Lodge</div>
+                            <div class="hotel-price">₹780 / Night</div>
+                            <input type="hidden" name="hotelName" value="Mountain Lodge">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel5.jpg" alt="Urban Retreat">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Urban Retreat</div>
+                            <div class="hotel-price">₹670 / Night</div>
+                            <input type="hidden" name="hotelName" value="Urban Retreat">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel6.jpg" alt="Sunset Inn">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Sunset Inn</div>
+                            <div class="hotel-price">₹900 / Night</div>
+                            <input type="hidden" name="hotelName" value="Sunset Inn">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel7.jpg" alt="Lake View Hotel">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Lake View Hotel</div>
+                            <div class="hotel-price">₹720 / Night</div>
+                            <input type="hidden" name="hotelName" value="Lake View Hotel">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel8.jpg" alt="Blue Lagoon Resort">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Blue Lagoon Resort</div>
+                            <div class="hotel-price">₹1050 / Night</div>
+                            <input type="hidden" name="hotelName" value="Blue Lagoon Resort">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel9.jpg" alt="Cityscape Hotel">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Cityscape Hotel</div>
+                            <div class="hotel-price">₹890 / Night</div>
+                            <input type="hidden" name="hotelName" value="Cityscape Hotel">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+
+                <form action="/select-hotel" method="POST">
+                    <div class="hotel-card">
+                        <img src="/images/hotel10.jpg" alt="Royal Heritage">
+                        <div class="hotel-info">
+                            <div class="hotel-name">Royal Heritage</div>
+                            <div class="hotel-price">₹1200 / Night</div>
+                            <input type="hidden" name="hotelName" value="Royal Heritage">
+                            <input type="submit" value="Book" class="btn">
+                        </div>
+                    </div>
+                </form>
+                <% if (hotels && hotels.length > 0) { %>
+                    <% hotels.forEach(hotel => { %>
+                        <form action="/select-hotel" method="POST">
+                            <div class="hotel-card">
+                                <img src="/uploads/<%= hotel.image %>" alt="<%= hotel.name %>">
+                                <div class="hotel-info">
+                                    <div class="hotel-name"><%= hotel.name %></div>
+                                    <div class="hotel-price">₹<%= hotel.price %> / Night</div>
+                                    <input type="hidden" name="hotelName" value="<%= hotel.name %>">
+                                    <input type="submit" value="Book" class="btn">
+                                </div>
+                            </div>
+                        </form>
+                    <% }) %>
+                <% } %>
+
             </div>
-            <div class="hotel-card">
-                <img src="/images/hotel1.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Grand Palace</div>
-                    <div class="hotel-price">₹950 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel3.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Sea View Resort</div>
-                    <div class="hotel-price">₹850 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel4.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Mountain Lodge</div>
-                    <div class="hotel-price">₹780 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel5.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Urban Retreat</div>
-                    <div class="hotel-price">₹670 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel6.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Sunset Inn</div>
-                    <div class="hotel-price">₹900 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel7.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Lake View Hotel</div>
-                    <div class="hotel-price">₹720 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel8.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Blue Lagoon Resort</div>
-                    <div class="hotel-price">₹1,050 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel9.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Cityscape Hotel</div>
-                    <div class="hotel-price">₹890 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-            <div class="hotel-card">
-                <img src="/images/hotel10.jpg" alt="Hotel Image">
-                <div class="hotel-info">
-                    <div class="hotel-name">Royal Heritage</div>
-                    <div class="hotel-price">₹1,200 / Night</div>
-                </div>
-                <input value="Book" class="btn" type="submit"><br><br>
-            </div>
-        </div>
-    </form>
-    </fieldset>
+        </fieldset>
     </main>
 
 </body>
-<%- include('../partials/footer')%>
+<%- include('../partials/footer') %>
 </html>
